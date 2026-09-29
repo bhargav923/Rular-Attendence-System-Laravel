@@ -23,16 +23,23 @@
             <td class="p-3">{{ $student->class }}</td>
             <td class="p-3">{{ $student->division }}</td>
             <td class="p-3">{{ $student->age }}</td>
-            <td class="p-3">{{ $student->aadhar }}</td>
+            <td class="p-3">{{ 'XXXX XXXX ' . substr($student->aadhar, -4) }}</td>
             <td class="p-3">{{ $student->village }}</td>
             <td class="p-3">{{ $student->dob }}</td>
             <td class="p-3">
                 <a href="{{ route('student.show', $student->id) }}" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
                     {{ __('messages.details') }}
                 </a>
-                <a href="{{ route('student.idcard', $student->id) }}" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 ml-2">
-                    {{ __('messages.id_card') }}
+                <a href="{{ route('student.edit', $student->id) }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 ml-2">
+                    {{ __('messages.edit') }}
                 </a>
+                <form action="{{ route('student.destroy', $student->id) }}" method="POST" class="inline ml-2" onsubmit="return confirm('{{ __('messages.delete_confirmation') }}');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
+                        {{ __('messages.delete') }}
+                    </button>
+                </form>
             </td>
         </tr>
         @endforeach

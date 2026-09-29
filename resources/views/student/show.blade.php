@@ -20,13 +20,9 @@
         <p><strong>Class:</strong> {{ $student->class }}</p>
         <p><strong>Division:</strong> {{ $student->division }}</p>
         <p><strong>Age:</strong> {{ $student->age }}</p>
-        <p><strong>Aadhar:</strong> {{ $student->aadhar }}</p>
+        <p><strong>Aadhar:</strong> XXXX XXXX {{ substr($student->aadhar, -4) }}</p>
         <p><strong>Village:</strong> {{ $student->village }}</p>
         <p><strong>Date of Birth:</strong> {{ $student->dob }}</p>
-    </div>
-    <div class="mt-6 flex flex-col items-center">
-        {!! $barcode !!}
-        <p class="text-sm tracking-widest mt-1">{{ $student->barcode ?? $student->enrollment_number ?? $student->id }}</p>
     </div>
 </div>
 @endsection

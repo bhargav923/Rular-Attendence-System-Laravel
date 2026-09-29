@@ -25,22 +25,16 @@
             <a href="{{ url('/') }}" class="py-2 px-4 rounded hover:bg-blue-600 transition font-semibold {{ request()->is('/') ? 'bg-blue-700' : '' }}">@lang('messages.home')</a>
             <a href="{{ url('/student/register') }}" class="py-2 px-4 rounded hover:bg-blue-600 transition font-semibold {{ request()->is('student/register') ? 'bg-blue-700' : '' }}">@lang('messages.student_register')</a>
             <a href="{{ url('/students') }}" class="py-2 px-4 rounded hover:bg-blue-600 transition font-semibold {{ request()->is('students') ? 'bg-blue-700' : '' }}">@lang('messages.student_list')</a>
+            <a href="{{ url('/attendance') }}" class="py-2 px-4 rounded hover:bg-blue-600 transition font-semibold {{ request()->is('attendance') ? 'bg-blue-700' : '' }}">@lang('messages.attendance')</a>
+            <a href="{{ url('/attendance/history') }}" class="py-2 px-4 rounded hover:bg-blue-600 transition font-semibold {{ request()->is('attendance/history') ? 'bg-blue-700' : '' }}">@lang('messages.attendance_history')</a>
         </nav>
 
         <div class="mt-auto">
             <label for="language-switcher" class="block text-sm font-medium text-white">@lang('messages.language')</label>
             <select id="language-switcher" name="language" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md text-gray-800">
-                <option value="gu" {{ app()->getLocale() == 'gu' ? 'selected' : '' }}>ગુજરાતી</option>
                 <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
                 <option value="hi" {{ app()->getLocale() == 'hi' ? 'selected' : '' }}>हिन्दी</option>
-                <option value="mr" {{ app()->getLocale() == 'mr' ? 'selected' : '' }}>मराठी</option>
-                <option value="ta" {{ app()->getLocale() == 'ta' ? 'selected' : '' }}>தமிழ்</option>
-                <option value="te" {{ app()->getLocale() == 'te' ? 'selected' : '' }}>తెలుగు</option>
-                <option value="kn" {{ app()->getLocale() == 'kn' ? 'selected' : '' }}>ಕನ್ನಡ</option>
-                <option value="ml" {{ app()->getLocale() == 'ml' ? 'selected' : '' }}>മലയാളം</option>
-                <option value="bn" {{ app()->getLocale() == 'bn' ? 'selected' : '' }}>বাংলা</option>
-                <option value="as" {{ app()->getLocale() == 'as' ? 'selected' : '' }}>অসমীয়া</option>
-                <option value="pa" {{ app()->getLocale() == 'pa' ? 'selected' : '' }}>ਪੰਜਾਬੀ</option>
+                <option value="gu" {{ app()->getLocale() == 'gu' ? 'selected' : '' }}>ગુજરાતી</option>
             </select>
         </div>
     </aside>

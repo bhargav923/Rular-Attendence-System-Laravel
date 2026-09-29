@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AttendanceController;
 
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
@@ -53,9 +54,16 @@ Route::middleware(\App\Http\Middleware\SetLocale::class)->group(function() {
         Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
         Route::get('/students', [StudentController::class, 'index'])->name('students.index');
         Route::get('/student/{id}', [StudentController::class, 'show'])->name('student.show');
-        Route::get('/student/{id}/idcard', [StudentController::class, 'idcard'])->name('student.idcard');
-        Route::get('/student/{id}/gidcard', [StudentController::class, 'gidcard'])->name('student.gidcard');
-        Route::get('/attendance/mark/{id}', [StudentController::class, 'markAttendance'])->name('attendance.mark');
+        Route::get('/student/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
+        Route::put('/student/{id}', [StudentController::class, 'update'])->name('student.update');
+        Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
+        
+        // Attendance Routes
+        Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+        Route::get('/attendance/mark/{class}/{division}', [AttendanceController::class, 'markAttendance'])->name('attendance.mark');
+        Route::post('/attendance/store', [AttendanceController::class, 'storeAttendance'])->name('attendance.store');
+        Route::get('/attendance/history', [AttendanceController::class, 'history'])->name('attendance.history');
+        Route::get('/attendance/view/{id}', [AttendanceController::class, 'viewAttendance'])->name('attendance.view');
     });
 
 
@@ -67,5 +75,9 @@ Route::middleware(\App\Http\Middleware\SetLocale::class)->group(function() {
         Route::get('/schools', [AdminController::class, 'schools'])->name('admin.schools');
         Route::get('/schools/approve/{id}', [AdminController::class, 'approve'])->name('admin.schools.approve');
         Route::get('/schools/reject/{id}', [AdminController::class, 'reject'])->name('admin.schools.reject');
+        Route::get('/schools/details/{id}', [AdminController::class, 'show'])->name('admin.schools.show');
+        Route::get('/schools/edit/{id}', [AdminController::class, 'edit'])->name('admin.schools.edit');
+        Route::put('/schools/{id}', [AdminController::class, 'update'])->name('admin.schools.update');
+        Route::delete('/schools/{id}', [AdminController::class, 'destroy'])->name('admin.schools.destroy');
     });
 });

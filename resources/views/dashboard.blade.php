@@ -39,14 +39,10 @@
     <a href="{{ url('/students') }}" class="ml-4 bg-green-400 text-white py-3 px-8 rounded-lg text-2xl font-semibold hover:bg-green-300 transition">વિદ્યાર્થી યાદી જુઓ</a>
 </section>
 
-<section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition text-center">
         <h3 class="text-3xl font-bold mb-4 text-blue-700">સરળ નોંધણી</h3>
         <p class="text-xl text-gray-700">વિદ્યાર્થીઓને ઝડપી અને સરળ રીતે નોંધાવી શકો છો.</p>
-    </div>
-    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition text-center">
-        <h3 class="text-3xl font-bold mb-4 text-blue-700">QR Attendance</h3>
-        <p class="text-xl text-gray-700">વિદ્યાર્થીઓના QR સ્કેનથી હાજરી તરત નોંધાય છે.</p>
     </div>
     <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition text-center">
         <h3 class="text-3xl font-bold mb-4 text-blue-700">રિપોર્ટ</h3>
